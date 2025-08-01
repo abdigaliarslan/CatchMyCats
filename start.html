@@ -2,15 +2,15 @@
 <html>
 <head>
   <title>Catch My CATs!</title>
+  <link rel="stylesheet" href="StartStyle.css">
 </head>
 <body>
-  <h1>Catch My CATs!</h1>
-
-  <label>Input speed:</label>
-  <input type="number" id="maxSpeed"><br>
-
-  <button onclick="startGame()">Play Game</button>
-
+  <div class="container">
+    <h1>Catch My CATs</h1>
+    <label for="maxSpeed">Speed:</label>
+    <input type="number" id="maxSpeed" min="1" max="100" placeholder="e.g. 30">
+    <button onclick="startGame()">Play</button>
+  </div>
   <script>
     function startGame() {
       const maxSpeed = document.getElementById("maxSpeed").value;
