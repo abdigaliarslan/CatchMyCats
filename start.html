@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Catch My CATs!</title>
 </head>
 <body>
-    <h1>Catch My CATs!</h1>
-    <button onclick="window.location.href='index.html'">Play Game</button>
+  <h1>Catch My CATs!</h1>
+
+  <label>Input speed:</label>
+  <input type="number" id="maxSpeed"><br>
+
+  <button onclick="startGame()">Play Game</button>
+
+  <script>
+    function startGame() {
+      const maxSpeed = document.getElementById("maxSpeed").value;
+
+      if (!maxSpeed) {
+        alert("Please input speed");
+        return;
+      }
+
+      localStorage.setItem("maxSpeed", maxSpeed);
+      window.location.href = "index.html";  
+    }
+  </script>
 </body>
 </html>
