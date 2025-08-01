@@ -9,6 +9,7 @@
 <body>
     <h1>Catch My Cats!</h1>
     <h2>Score: <span id="score">0</span></h2>
+    <p id="info"></p>
     <img id="image" src="" alt="Cat" onclick="handleClick()">
     <script>
         if (!document.referrer.includes('start.html')) {
@@ -53,9 +54,17 @@
             RandomCat();
         }
         
+
+        const maxSpeed = localStorage.getItem('maxSpeed');
+        if (!maxSpeed){
+            document.getElementById('info').textContent = 'Please set your max speed';
+        }
+        else{
+            document.getElementById('info').textContent = `Your max speed is ${maxSpeed} seconds`;
+        }
          
         window.onload = RandomCat;
-        setInterval(RandomCat, 500);
+        setInterval(RandomCat, maxSpeed * 1000);
     </script>
 </body>
 </html> 
