@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход / Регистрация</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/CSS/registerForm.css">
+</head>
+<body>
+  <div class="form-box">
+    <h2>WELCOME</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="Имя пользователя" required>
+      <input type="password" name="password" placeholder="Пароль" required>
+      <div class="button-row">
+        <button type="submit" name="action" value="login">ВОЙТИ</button>
+        <button type="submit" name="action" value="register">РЕГИСТРАЦИЯ</button>
+      </div>
+    </form>
+
+    {% if error %}
+      <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+    {% if success %}
+      <div class="success-message">{{ success }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>

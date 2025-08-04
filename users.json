@@ -1,0 +1,11 @@
+{
+    "arsen": {
+        "password": "123",
+        "hits_easy": 0,
+        "misses_easy": 0,
+        "hits_medium": 0,
+        "misses_medium": 0,
+        "hits_hard": 0,
+        "misses_hard": 0
+    }
+}

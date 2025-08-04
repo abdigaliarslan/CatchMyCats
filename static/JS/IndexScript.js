@@ -1,14 +1,20 @@
-let intervalId;
+
+let gameTimer;
 let scoreVal = 0;
-let missVal =0;
+let missVal = 0;
+
 const score = document.getElementById('score');
 const miss = document.getElementById('miss');
 const images = [
-            "source/cat1.png",
-            "source/cat2.png",
-            "source/cat3.png",
-            "source/cat4.png",
-            "source/cat5.png",
+            "static/images/cat1.png",
+            "static/images/cat2.png",
+            "static/images/cat3.png",
+            "static/images/cat4.png",
+            "static/images/cat5.png",
+            "static/images/cat6.png",
+            "static/images/cat7.png",
+            "static/images/cat8.png",
+            "static/images/cat9.png",
         ];
         const image = document.getElementById('image');
 
@@ -57,7 +63,29 @@ const maxSpeed = localStorage.getItem('maxSpeed');
             info.textContent = `Speed: ${maxSpeed}`;
         }
 
+function startTimer() {
+  const timerDisplay = document.getElementById("timer");
+  timerDisplay.textContent = `Time: ${timeLeft}`;
+
+  gameTimer = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = `Time: ${timeLeft}`;
+
+    if (timeLeft <= 0) {
+      clearInterval(gameTimer);
+      endGame();
+    }
+  }, 1000);
+}
+
+let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
+startTimer();
+
+
+
  window.onload = () => {
             RandomCat();
             intervalId = setInterval(RandomCat, 1000 * maxSpeed);
         }
+
+    

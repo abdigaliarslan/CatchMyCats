@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catch My CATs!</title>
+  <link rel="stylesheet" href="../static/CSS/StartStyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Catch My CATs</h1>
+    <p>Levels:</p>
+    <div class="difficulty-buttons">
+      <button onclick="startGame(1)">Easy</button>
+      <button onclick="startGame(3)">Medium</button>
+      <button onclick="startGame(5)">Hard</button>
+    </div>
+
+    <!-- 💡 Кнопка Leaderboard -->
+    <div class="leaderboard-button">
+      <button onclick="window.location.href='/leaderboard'">🏆 Leaderboard 🏆</button>
+    </div>
+  </div>
+
+  <script>
+    function startGame(speed) {
+      localStorage.setItem("maxSpeed", speed);
+      window.location.href = "/index";
+    }
+  </script>
+</body>
+</html>
