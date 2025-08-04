@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatchMe</title>
-    <link rel="stylesheet" href="static/CSS/IndexStyle.css">
+  <title>Catch My CATs!</title>
+  <link rel="stylesheet" href=" static/CSS/IndexStyle.css">
 </head>
 <body>
-    <h1>Catch My Cats!</h1>
-    <p id="score">Hits: 0</p>
-    <p id="miss">Misses: 0</p>
-    <p id="info"></p>
-    <div id="timer">Time: 30</div>
-
-    <img id="image" src="" alt="Cat">
-
-
-    <div id="gameOverPopup" class="popup hidden">
-         <div class="popup-content">
-            <h2>⏰ Time's up!</h2>
-            <p id="finalScoreText">Your score:</p>
-            <button onclick="restartGame()">🔁 Restart</button>
-            <button onclick="goToMenu()">🏠 Menu</button>
-        </div>
+  <div class="container">
+    <h1>Catch My CATs</h1>
+    <p>Levels:</p>
+    <div class="difficulty-buttons">
+      <label></label>
+      <button onclick="startGame(1.5)">Easy</button>
+      <button onclick="startGame(1)">Medium</button>
+      <button onclick="startGame(0.5)">Hard</button>
     </div>
 
-
-     
-     <script src="static/JS/IndexScript.js"></script>
-     <script src="static/JS/game.js"></script>
+  <script>
+    function startGame(speed) {
+      localStorage.setItem("maxSpeed", speed);
+      window.location.href = "start.html";
+    }
+  </script>
 </body>
 </html>

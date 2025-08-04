@@ -1,128 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body, html {
+body {
+  background: radial-gradient(circle at center, #1f005c, #000000);
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Press Start 2P', cursive;
-  background: radial-gradient(circle at center, #1f005c, #000000);
-  color: #fff;
-  overflow: hidden;
-}
-
-h1 {
-  font-size: 2em;
   text-align: center;
-  margin-top: 40px;
-  color: #ff00ff;
-  text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff;
-  animation: flicker 1.5s infinite;
-}
-
-#score, #miss {
-  position: absolute;
-  top: 20px;
-  font-size: 1em;
-  padding: 5px 15px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid #ff00ff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ff00ff;
-}
-
-#score {
-  left: 20px;
-  top: 20px
-}
-
-#miss {
-  left: 20px;
-  top: 70px;
-}
-
- 
-#info {
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-  font-size: 0.7em;
-  padding: 5px 10px;
-  text-align: center;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
-}
-
-#image {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  filter: drop-shadow(0 0 10px #ff00ff);
-}
-
-#image:hover {
-  transform: scale(1.15);
-}
-
-#timer {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1em;
-  padding: 5px 15px;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
-  font-family: 'Press Start 2P', cursive;
-  z-index: 999;
-}
-
-
-
-.popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.popup-content {
-  background: #1f005c;
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 60px 50px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px #ff00ff, 0 0 60px #ff00ff inset;
+  width: 90%;
+  max-width: 700px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  color: #ff00ff;
+  font-size: 28px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+  margin-bottom: 40px;
+}
+
+p {
+  color: #ffccff;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.difficulty-buttons button {
+  padding: 15px 25px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
   color: #fff;
-  border: 2px solid #ff00ff;
-  padding: 40px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #ff00ff;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.popup button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-family: 'Press Start 2P', cursive;
   background-color: #ff00ff;
   border: none;
-  color: white;
   border-radius: 12px;
-  cursor: pointer;
   box-shadow: 0 0 10px #ff00ff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.popup button:hover {
+.difficulty-buttons button:hover {
   background-color: #ff66ff;
+  transform: scale(1.1);
 }
 
-.hidden {
-  display: none;
-}
+
+ 
+
+ 
+
+ 
