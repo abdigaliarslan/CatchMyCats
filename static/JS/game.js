@@ -21,6 +21,6 @@ function restartGame() {
 }
 
 function goToMenu() {
-  window.location.href = "/start";
+  window.location.href = "../index.html";
 }
 
