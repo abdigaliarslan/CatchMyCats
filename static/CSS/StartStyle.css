@@ -14,7 +14,7 @@ h1 {
   font-size: 2em;
   text-align: center;
   margin-top: 40px;
-  color: #ff00ff;
+   
   text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff;
   animation: flicker 1.5s infinite;
 }
