@@ -19,7 +19,7 @@ h1 {
   animation: flicker 1.5s infinite;
 }
 
-#score, #lives {
+#score, #miss {
   position: absolute;
   top: 20px;
   font-size: 1em;
@@ -32,42 +32,28 @@ h1 {
 
 #score {
   left: 20px;
+  top: 20px
 }
 
-#lives {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
+#miss {
+  left: 20px;
+  top: 70px;
 }
 
-.heart {
-  width: 30px;
-  height: 30px;
-  background-image: url('source/heart.png');
-  background-size: cover;
-  transition: opacity 0.2s ease;
-  opacity: 1;
-}
-
-.heart.lost {
-  opacity: 0.2;  
-}
-
-
+ 
 #info {
-  margin: 10px auto;
-  text-align: center;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
   font-size: 0.7em;
   padding: 5px 10px;
+  text-align: center;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid #ff00ff;
   box-shadow: 0 0 10px #ff00ff;
-  width: fit-content;
 }
-
 
 #image {
   position: absolute;
@@ -82,54 +68,3 @@ h1 {
   transform: scale(1.15);
 }
 
-#game-over {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.9);
-  color: #ff00ff;
-  padding: 40px 60px;
-  text-align: center;
-  border: 3px double #ff00ff;
-  border-radius: 16px;
-  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff inset;
-  z-index: 1000;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.2em;
-  text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff;
-  animation: flicker 2s infinite;
-}
-
-#game-over button {
-  margin-top: 30px;
-  padding: 15px 30px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.8em;
-  background-color: black;
-  color: #ff00ff;
-  border: 2px solid #ff00ff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ff00ff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#game-over button:hover {
-  background-color: #ff00ff;
-  color: black;
-  box-shadow: 0 0 20px #fff;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.4;
-  }
-}
