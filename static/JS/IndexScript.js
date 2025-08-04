@@ -1,3 +1,5 @@
+if (window.location.pathname === "index.html"){ 
+  window.location.href = "start.html"}
 
 let gameTimer;
 let scoreVal = 0;
