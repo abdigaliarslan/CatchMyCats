@@ -10,26 +10,119 @@ body, html {
   overflow: hidden;
 }
 
-h1, h2, p {
+h1 {
+  font-size: 1.5em;
   text-align: center;
-  text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff;
+  margin-top: 20px;
+  color: #ff00ff;
+  text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff;
+  animation: flicker 1.5s infinite;
 }
 
-h1 {
-  font-size: 2em;
-  margin-top: 30px;
+#score, #lives {
+  position: absolute;
+  top: 20px;
+  font-size: 1em;
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #ff00ff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+#score {
+  left: 20px;
+}
+
+#lives {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.heart {
+  width: 30px;
+  height: 30px;
+  background-image: url('source/heart.png');
+  background-size: cover;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+
+.heart.lost {
+  opacity: 0.2;  
+}
+
+
+#info {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+  width: fit-content;
+}
+
+
+#image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 10px #ff00ff);
+}
+
+#image:hover {
+  transform: scale(1.15);
+}
+
+#game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #ff00ff;
+  padding: 40px 60px;
+  text-align: center;
+  border: 3px double #ff00ff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff inset;
+  z-index: 1000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px #fff, 0 0 15px #ff00ff;
   animation: flicker 2s infinite;
 }
 
-h2 {
-  font-size: 1em;
-  margin: 20px 0 10px;
+#game-over button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8em;
+  background-color: black;
+  color: #ff00ff;
+  border: 2px solid #ff00ff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff00ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-p {
-  font-size: 0.75em;
-  margin-bottom: 20px;
-  color: #ccc;
+#game-over button:hover {
+  background-color: #ff00ff;
+  color: black;
+  box-shadow: 0 0 20px #fff;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes flicker {
@@ -39,19 +132,4 @@ p {
   20%, 24%, 55% {
     opacity: 0.4;
   }
-}
-
-#image {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  filter: drop-shadow(0 0 10px #ff00ff);
-  box-shadow: none;
-}
-
-#image:hover {
-  transform: scale(1.1);
-  box-shadow: none;
 }

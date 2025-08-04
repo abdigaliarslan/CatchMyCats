@@ -57,24 +57,30 @@ if (!document.referrer.includes("Start/start.html")) {
         image.addEventListener('click', handleClick);
 
         function updateLives() {
-            livesDisplay.innerText = "❤️".repeat(Math.max(0, lives));
-            livesDisplay.style.color = "red";
-            livesDisplay.style.transition = "0.2s";
-            if (lives == 0) {
-                GameOver()
-            }};
-            
+            livesDisplay.innerHTML = ''; // Очищаем
+            for (let i = 0; i < 3; i++) { // Всегда отображаем 3 сердечка
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                if (i >= lives) {
+                    heart.classList.add('lost'); // Тусклая, если потеряна
+                }
+                livesDisplay.appendChild(heart);
+            }
 
+            if (lives === 0) {
+                GameOver();
+            }
+        }
+        updateLives();
 
         document.addEventListener('click', function (e) {
-            if (e.target !== image) {
+            if (e.target !== image)  {
                 lives--;
                 updateLives();
             }
         });
         
         function GameOver(){
-            console.log(">>> GameOver CALLED");
             document.getElementById('game-over').classList.remove('hidden');
             clearInterval(intervalId)
             if(image) image.remove();
@@ -87,10 +93,10 @@ if (!document.referrer.includes("Start/start.html")) {
         const maxSpeed = localStorage.getItem('maxSpeed');
         const info = document.getElementById('info');
         if (!maxSpeed){
-            info.textContent = 'Please set your max speed';
+            info.textContent = 'Speed';
         }
         else{
-            info.textContent = `Your max speed is ${maxSpeed} seconds`;
+            info.textContent = `Speed: ${maxSpeed}`;
         }
 
         

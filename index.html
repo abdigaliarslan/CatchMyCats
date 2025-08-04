@@ -8,10 +8,22 @@
 </head>
 <body>
     <h1>Catch My Cats!</h1>
-    <h2>Score: <span id="score">0</span></h2>
+    <div id="score">Score: 0</div>
+
     <p id="info"></p>
-    <img id="image" src="" alt="Cat" onclick="handleClick()">
+    <div id="lives"></div>
+
+    <img id="image" src="" alt="Cat">
 
     <script src="script.js"></script>
+
+    
+    
+    <div id="game-over" class="hidden">
+        <h1>GAME OVER</h1>
+        <button onclick="restartGame()">RESTART</button>
+    </div>
+
+
 </body>
 </html> 
