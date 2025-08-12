@@ -40,6 +40,8 @@ function RandomCat() {
             image.style.top = `${y}px`;
 }
 
+let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
+
 function handleClick(){
             scoreVal++;
             score.textContent = `Hits: ${scoreVal}`;
@@ -83,8 +85,6 @@ function startTimer() {
 
 let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
 startTimer();
-
-let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
 
  window.onload = () => {
             RandomCat();
