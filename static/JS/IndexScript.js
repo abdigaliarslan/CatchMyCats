@@ -5,6 +5,8 @@ let gameTimer;
 let scoreVal = 0;
 let missVal = 0;
 
+let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
+
 const score = document.getElementById('score');
 const miss = document.getElementById('miss');
 const images = [
@@ -32,10 +34,6 @@ const images = [
             return {x, y};
 }
 
-function EraseCat() {
-            image.src = "";
-}
-
 function RandomCat() {
             const index = Math.floor(Math.random() * images.length);
             image.src = images[index];
@@ -47,7 +45,7 @@ function RandomCat() {
 function handleClick(){
             scoreVal++;
             score.textContent = `Hits: ${scoreVal}`;
-            EraseCat();
+            clearInterval(randomCatAppear);
 }
 
 function handleMiss(e) {
@@ -88,11 +86,9 @@ function startTimer() {
 let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
 startTimer();
 
-
-
  window.onload = () => {
             RandomCat();
-            intervalId = setInterval(RandomCat, 1000 * maxSpeed);
+            intervalId = randomCatAppear;
         }
 
     
