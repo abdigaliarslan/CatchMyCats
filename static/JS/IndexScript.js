@@ -40,6 +40,15 @@ function RandomCat() {
             image.style.top = `${y}px`;
 }
 
+const maxSpeed = localStorage.getItem('maxSpeed');
+const maxLives = localStorage.getItem('maxLives');
+const info = document.getElementById('info');
+if (!maxSpeed) {
+            info.textContent = 'Speed';
+} else {
+            info.textContent = `Speed: ${maxSpeed}`;
+}
+
 let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
 
 function handleClick(){
@@ -57,16 +66,6 @@ function handleMiss(e) {
     
 image.addEventListener('click', handleClick);
 document.body.addEventListener('click', handleMiss);
-
-const maxSpeed = localStorage.getItem('maxSpeed');
-        const maxLives = localStorage.getItem('maxLives');
-        const info = document.getElementById('info');
-        if (!maxSpeed){
-            info.textContent = 'Speed';
-        }
-        else{
-            info.textContent = `Speed: ${maxSpeed}`;
-        }
 
 function startTimer() {
   const timerDisplay = document.getElementById("timer");
