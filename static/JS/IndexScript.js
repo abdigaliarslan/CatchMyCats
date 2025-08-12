@@ -95,6 +95,7 @@ function generateUsername() {
 }
 
  window.onload = () => {
+            generateUsername();
             RandomCat();
             intervalId = randomCatAppear;
         }
