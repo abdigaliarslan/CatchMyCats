@@ -4,8 +4,7 @@
   <title>Catch My CATs!</title>
   <link rel="stylesheet" href=" static/CSS/IndexStyle.css">
 </head>
-<body>
-  <div class="container">
+<body onload="generateUsername()">
     <h1>Catch My CATs!</h1>
 
     <p>Username:</p>
@@ -23,6 +22,12 @@
     function startGame(speed) {
       localStorage.setItem("maxSpeed", speed);
       window.location.href = "start.html";
+    }
+
+    function generateUsername() {
+      randNum = Math.floor(Math.random() * 10000) + 1000
+      randUsername = "user-"+randNum
+      input.value = randUsername;
     }
   </script>
 </body>
