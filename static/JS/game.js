@@ -6,7 +6,7 @@ function endGame() {
   scoreText.textContent = `Hits: ${scoreVal} | Misses: ${missVal}`;
   popup.classList.remove("hidden");
 
-  appendResults(localStorage.getItem("username"), scoreVal, missVal);
+  appendResult(localStorage.getItem("username"), scoreVal, missVal);
 }
   
 
