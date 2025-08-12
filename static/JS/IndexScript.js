@@ -30,28 +30,33 @@ const images = [
             const y = Math.floor(Math.random() * maxY); 
             
             return {x, y};
-        }
+}
 
-function RandomCat(){
+function EraseCat() {
+            image.src = "";
+}
+
+function RandomCat() {
             const index = Math.floor(Math.random() * images.length);
             image.src = images[index];
             const {x,y} = RandomCoordinates();
             image.style.left = `${x}px`;
             image.style.top = `${y}px`;
-        }
+}
 
 function handleClick(){
             scoreVal++;
             score.textContent = `Hits: ${scoreVal}`;
-            RandomCat();
-        }
+            EraseCat();
+}
 
-function handleMiss(e){
-    if (e.target != image){
+function handleMiss(e) {
+    if (e.target != image) {
         missVal++;
         miss.textContent = `Misses: ${missVal}`;
-        }
     }
+}
+    
 image.addEventListener('click', handleClick);
 document.body.addEventListener('click', handleMiss);
 
