@@ -63,3 +63,15 @@ function appendResult(username, hits, misses) {
       console.error("Error:", err.message);
     });
 }
+
+function getLeaderboard() {
+  res = fetch(BIN_URL, {
+    headers: { "X-Master-Key": MASTER_KEY }
+  })
+    .then(readRes => {
+      if (!readRes.ok) throw new Error(`Read error: ${readRes.status}`);
+      return readRes.json();
+    });
+
+  console.log(res);
+}
