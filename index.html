@@ -25,8 +25,9 @@
     }
 
     function generateUsername() {
+      input = document.getElementById('username');
       randNum = Math.floor(Math.random() * 10000) + 1000
-      randUsername = "user-"+randNum
+      randUsername = "user-"+randNum;
       input.value = randUsername;
     }
   </script>
