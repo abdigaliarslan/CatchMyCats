@@ -17,7 +17,7 @@ function showGameOverPopup(hits, misses) {
   resultText.textContent = `Hits: ${hits}\nMisses: ${misses}`;
   modal.classList.remove("hidden");
 
-  appendResults(localStorage.getItem("username"), hits, misses);
+  appendResult(localStorage.getItem("username"), hits, misses);
 }
 
 function restartGame() {
