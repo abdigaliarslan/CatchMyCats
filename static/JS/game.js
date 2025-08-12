@@ -2,10 +2,12 @@ function endGame() {
   clearInterval(gameTimer);  
 
   const popup = document.getElementById("gameOverPopup");
-    const scoreText = document.getElementById("finalScoreText");
-    scoreText.textContent = `Hits: ${scoreVal} | Misses: ${missVal}`;
-    popup.classList.remove("hidden");
-  }
+  const scoreText = document.getElementById("finalScoreText");
+  scoreText.textContent = `Hits: ${scoreVal} | Misses: ${missVal}`;
+  popup.classList.remove("hidden");
+
+  appendResults(localStorage.getItem("username"), scoreVal, missVal);
+}
   
 
 function showGameOverPopup(hits, misses) {
