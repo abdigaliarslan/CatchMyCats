@@ -17,8 +17,9 @@ const images = [
             "static/images/cat7.png",
             "static/images/cat8.png",
             "static/images/cat9.png",
-        ];
-        const image = document.getElementById('image');
+];
+const image = document.getElementById('image');
+const input = document.getElementById('username');
 
  function RandomCoordinates(){
             const imgW = image.offsetWidth || 150;
@@ -86,6 +87,12 @@ function startTimer() {
 
 let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
 startTimer();
+
+function generateUsername() {
+  randNum = Math.floor(Math.random() * 10000) + 1000
+  randUsername = "user-"+randNum
+  input.value = randUsername;
+}
 
  window.onload = () => {
             RandomCat();
