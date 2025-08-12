@@ -88,14 +88,7 @@ function startTimer() {
 let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
 startTimer();
 
-function generateUsername() {
-  randNum = Math.floor(Math.random() * 10000) + 1000
-  randUsername = "user-"+randNum
-  input.value = randUsername;
-}
-
- window.onload = () => {
-            generateUsername();
+window.onload = () => {
             RandomCat();
             intervalId = randomCatAppear;
         }
