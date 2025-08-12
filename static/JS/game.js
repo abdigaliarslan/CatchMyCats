@@ -29,7 +29,7 @@ function goToMenu() {
 const BIN_URL = "https://api.jsonbin.io/v3/b/689b302443b1c97be91c6ed6";
 const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai";
 
-function appendResult(username, hits, misses) {
+async function appendResult(username, hits, misses) {
   try {
     const readRes = await fetch(BIN_URL, {
       headers: { "X-Master-Key": MASTER_KEY }
