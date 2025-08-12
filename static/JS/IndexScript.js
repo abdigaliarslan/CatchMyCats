@@ -55,6 +55,7 @@ function handleClick(){
             scoreVal++;
             score.textContent = `Hits: ${scoreVal}`;
             clearInterval(randomCatAppear);
+            randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
 }
 
 function handleMiss(e) {
