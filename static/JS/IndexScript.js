@@ -5,8 +5,6 @@ let gameTimer;
 let scoreVal = 0;
 let missVal = 0;
 
-let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
-
 const score = document.getElementById('score');
 const miss = document.getElementById('miss');
 const images = [
@@ -85,6 +83,8 @@ function startTimer() {
 
 let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
 startTimer();
+
+let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
 
  window.onload = () => {
             RandomCat();
