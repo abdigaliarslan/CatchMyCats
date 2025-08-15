@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background: radial-gradient(circle at center, #1f005c, #000000);
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 0 25px #ff00ff, 0 0 60px #ff00ff inset;
+    width: 90%;
+    max-width: 700px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1 {
+    font-size: 24px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+    margin-bottom: 30px;
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard th, .leaderboard td {
+    padding: 12px;
+    text-align: center;
+}
+
+.leaderboard th {
+    color: #ffccff;
+    font-size: 12px;
+    border-bottom: 2px solid #ff00ff;
+}
+
+.leaderboard td {
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.leaderboard tr:nth-child(1) td {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.leaderboard tr:nth-child(2) td {
+    color: #c0c0c0;
+    text-shadow: 0 0 10px #c0c0c0;
+}
+
+.leaderboard tr:nth-child(3) td {
+    color: #cd7f32;
+    text-shadow: 0 0 10px #cd7f32;
+}
+
+.back-btn {
+    margin-top: 25px;
+    padding: 13px 40px; 
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;  
+    color: #fff;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00ffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #66ffff;
+    transform: scale(1.1);
+}
