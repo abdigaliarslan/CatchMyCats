@@ -11,7 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
 }
 
 .container {
@@ -21,17 +20,35 @@ body {
     box-shadow: 0 0 25px #ff00ff, 0 0 60px #ff00ff inset;
     width: 90%;
     max-width: 700px;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 h1 {
     font-size: 24px;
     text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.level-buttons {
+    margin-bottom: 20px;
+}
+
+.level-buttons button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #00ffff;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffff;
+    transition: transform 0.2s;
+}
+
+.level-buttons button:hover {
+    transform: scale(1.1);
+    background-color: #66ffff;
 }
 
 .leaderboard {
@@ -71,10 +88,10 @@ h1 {
 }
 
 .back-btn {
-    margin-top: 25px;
-    padding: 13px 40px; 
+    margin-top: 20px;
+    padding: 13px 40px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 14px;  
+    font-size: 14px;
     color: #fff;
     background-color: #00ffff;
     border: none;

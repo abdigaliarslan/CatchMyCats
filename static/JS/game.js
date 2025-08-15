@@ -31,7 +31,7 @@ function goToMenu() {
 const BIN_URL = "https://api.jsonbin.io/v3/b/689b302443b1c97be91c6ed6";
 const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai";
 
-function appendResult(username, hits, misses) {
+function appendResult(username, hits, misses, level) {
   fetch(BIN_URL, {
     headers: { "X-Master-Key": MASTER_KEY }
   })
@@ -41,16 +41,26 @@ function appendResult(username, hits, misses) {
     })
     .then(readData => {
       let existingArray = Array.isArray(readData.record) ? readData.record : [];
-      
-      const playerIndex = existingArray.findIndex(p => p.username === username);;
+
+      const playerIndex = existingArray.findIndex(p => p.username === username);
 
       if (playerIndex !== -1) {
-        if(hits > existingArray[playerIndex].hits){
-          existingArray[playerIndex].hits = hits;
-          existingArray[playerIndex].misses = misses;
+         
+        if (!(`hits_${level}` in existingArray[playerIndex])) {
+          existingArray[playerIndex][`hits_${level}`] = 0;
+          existingArray[playerIndex][`misses_${level}`] = 0;
+        }
+
+         if (hits > existingArray[playerIndex][`hits_${level}`]) {
+          existingArray[playerIndex][`hits_${level}`] = hits;
+          existingArray[playerIndex][`misses_${level}`] = misses;
         }
       } else {
-        existingArray.push({username, hits, misses});
+        existingArray.push({
+          username,
+          [`hits_${level}`]: hits,
+          [`misses_${level}`]: misses
+        });
       }
 
       return fetch(BIN_URL, {
@@ -74,14 +84,3 @@ function appendResult(username, hits, misses) {
     });
 }
 
-function getLeaderboard() {
-  res = fetch(BIN_URL, {
-    headers: { "X-Master-Key": MASTER_KEY }
-  })
-    .then(readRes => {
-      if (!readRes.ok) throw new Error(`Read error: ${readRes.status}`);
-      return readRes.json();
-    });
-
-  console.log(res);
-}
