@@ -37,7 +37,7 @@ const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai
                 return;
             }
 
-            top5.forEach((p, idx) => {
+             top5.forEach((p, idx) => {
                 const hits = p[`hits_${level}`] || 0;
                 const misses = p[`misses_${level}`] || 0;
                 const row = `<tr>

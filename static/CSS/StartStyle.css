@@ -55,7 +55,7 @@ h1 {
   box-shadow: 0 0 10px #ff00ff;
 }
 
-#image {
+#image {  
   position: absolute;
   width: 120px;
   height: 120px;
