@@ -103,7 +103,7 @@ document.addEventListener('wheel', e => {
 }, { passive: false });
 
 function appendResult(username, hits, misses) {
-    const level = localStorage.getItem("level"); // Берём текущий уровень
+    const level = localStorage.getItem("level");  
     const newEntry = {
         username,
         hits,
@@ -120,7 +120,7 @@ function appendResult(username, hits, misses) {
     })
     .then(readData => {
         let existingArray = Array.isArray(readData.record) ? readData.record : [];
-        existingArray.push(newEntry); // Просто добавляем новую запись
+        existingArray.push(newEntry);  
 
         return fetch(BIN_URL, {
             method: "PUT",
