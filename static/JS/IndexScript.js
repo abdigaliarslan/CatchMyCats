@@ -21,24 +21,26 @@ const images = [
 const image = document.getElementById('image');
 const input = document.getElementById('username');
 
- function RandomCoordinates(){
-            const imgW = image.offsetWidth || 150;
-            const imgH = image.offsetHeight || 150;
-            const maxX = window.innerWidth - imgW;  
-            const maxY = window.innerHeight - imgH;
-            
-            const x = Math.floor(Math.random() * maxX);
-            const y = Math.floor(Math.random() * maxY); 
-            
-            return {x, y};
+function RandomCoordinates() {
+    const imgW = 150;  
+    const imgH = 150;
+    const winW = 1000; 
+    const winH = 800;
+
+    const x = Math.floor(Math.random() * (winW - imgW));
+    const y = Math.floor(Math.random() * (winH - imgH));
+
+    return { x, y };
 }
 
+
+
 function RandomCat() {
-            const index = Math.floor(Math.random() * images.length);
-            image.src = images[index];
-            const {x,y} = RandomCoordinates();
-            image.style.left = `${x}px`;
-            image.style.top = `${y}px`;
+      const index = Math.floor(Math.random() * images.length);
+      image.src = images[index];
+      const {x,y} = RandomCoordinates();
+      image.style.left = `${x}px`;
+      image.style.top = `${y}px`;
 }
 
 const maxSpeed = localStorage.getItem('maxSpeed');
