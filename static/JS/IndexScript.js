@@ -102,3 +102,40 @@ document.addEventListener('wheel', e => {
     if (e.ctrlKey) e.preventDefault();
 }, { passive: false });
 
+function appendResult(username, hits, misses) {
+    const level = localStorage.getItem("level"); // Берём текущий уровень
+    const newEntry = {
+        username,
+        hits,
+        misses,
+        level
+    };
+
+    fetch(BIN_URL, {
+        headers: { "X-Master-Key": MASTER_KEY }
+    })
+    .then(res => {
+        if (!res.ok) throw new Error(`Read error: ${res.status}`);
+        return res.json();
+    })
+    .then(readData => {
+        let existingArray = Array.isArray(readData.record) ? readData.record : [];
+        existingArray.push(newEntry); // Просто добавляем новую запись
+
+        return fetch(BIN_URL, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Master-Key": MASTER_KEY
+            },
+            body: JSON.stringify(existingArray)
+        });
+    })
+    .then(updateRes => updateRes.json())
+    .then(updated => {
+        console.log("Updated JSON:", updated);
+    })
+    .catch(err => {
+        console.error("Error:", err.message);
+    });
+}
