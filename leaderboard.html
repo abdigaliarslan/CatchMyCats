@@ -10,13 +10,14 @@
 <div class="container">
     <h1 id="leaderboard-title">Leaderboard</h1>
 
+
     <div class="level-buttons">
-        <button onclick="changeLevel('easy')">Easy</button>
-        <button onclick="changeLevel('medium')">Medium</button>
-        <button onclick="changeLevel('hard')">Hard</button>
+        <button onclick="loadLeaderboard('easy')">easy</button>
+        <button onclick="loadLeaderboard('medium')">medium</button>
+        <button onclick="loadLeaderboard('hard')">hard</button>
     </div>
 
-    <div id="loading" style="display:none;">Loading...</div>
+    <div id="loading">Loading...</div>
 
     <table class="leaderboard">
         <thead>
@@ -27,7 +28,7 @@
                 <th>Misses</th>
             </tr>
         </thead>
-        <tbody id="leaderboard-body">
+        <tbody>
             <tr><td colspan="4">Select Level</td></tr>
         </tbody>
     </table>
@@ -36,6 +37,6 @@
 </div>
 
 <script src="static/JS/leaderboard.js"></script>
-
+ 
 </body>
 </html>
