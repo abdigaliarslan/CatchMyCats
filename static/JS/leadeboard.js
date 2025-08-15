@@ -4,7 +4,7 @@ const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai
  function updateTitle(level) {
     const titleEl = document.getElementById("leaderboard-title");
     if (titleEl) {
-        titleEl.textContent = `Leaderboard - ${capitalize(level)}`;
+        titleEl.textContent = `TOP-5 - ${capitalize(level)}`;
     }
 }
 
@@ -30,8 +30,9 @@ const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai
             const players = Array.isArray(data.record) ? data.record : [];
 
              players.sort((a, b) => (b[`hits_${level}`] || 0) - (a[`hits_${level}`] || 0));
+             const top5 = players.slice(0, 5);
 
-            if (players.length === 0) {
+            if (top5.length === 5) {
                 tbody.innerHTML = `<tr><td colspan="4">No data</td></tr>`;
                 return;
             }
