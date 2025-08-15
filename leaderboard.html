@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="CSS/LeaderboardStyle.css">
+    <link rel="stylesheet" href="static/CSS/Leaderboard.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Leaderboard</h1>
+    <h1 id="leaderboard-title">Leaderboard</h1>
+
 
     <div class="level-buttons">
-        <button onclick="loadLeaderboard('easy')">Easy</button>
-        <button onclick="loadLeaderboard('medium')">Medium</button>
-        <button onclick="loadLeaderboard('hard')">Hard</button>
+        <button onclick="loadLeaderboard('Easy')">Easy</button>
+        <button onclick="loadLeaderboard('Medium')">Medium</button>
+        <button onclick="loadLeaderboard('Hard')">Hard</button>
     </div>
 
     <div id="loading">Loading...</div>
@@ -28,13 +29,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td colspan="4">Выберите уровень</td></tr>
+            <tr><td colspan="4">Select Level</td></tr>
         </tbody>
     </table>
 
     <button class="back-btn" onclick="goBack()">Back</button>
 </div>
 
-<script src="JS/Leaderboard.js"></script>
+<script src="static/JS/leadeboard.js"></script>
 </body>
 </html>
