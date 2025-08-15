@@ -44,7 +44,7 @@ function appendResult(username, hits, misses) {
       
       const playerIndex = existingArray.findIndex(p => p.username === username);;
 
-      if (playerIndex === -1) {
+      if (playerIndex !== -1) {
         if(hits > existingArray[playerIndex].hits){
           existingArray[playerIndex].hits = hits;
           existingArray[playerIndex].misses = misses;
