@@ -32,12 +32,12 @@ const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai
              players.sort((a, b) => (b[`hits_${level}`] || 0) - (a[`hits_${level}`] || 0));
              const top5 = players.slice(0, 5);
 
-            if (top5.length === 5) {
+            if (top5.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="4">No data</td></tr>`;
                 return;
             }
 
-             players.forEach((p, idx) => {
+            top5.forEach((p, idx) => {
                 const hits = p[`hits_${level}`] || 0;
                 const misses = p[`misses_${level}`] || 0;
                 const row = `<tr>
