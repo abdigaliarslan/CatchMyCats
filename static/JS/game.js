@@ -40,8 +40,18 @@ function appendResult(username, hits, misses) {
       return readRes.json();
     })
     .then(readData => {
-      const existingArray = Array.isArray(readData.record) ? readData.record : [];
-      existingArray.push({ username, hits, misses });
+      let existingArray = Array.isArray(readData.record) ? readData.record : [];
+      
+      const playerIndex = existingArray.findIndex(p => p.username === username);;
+
+      if (playerIndex === -1) {
+        if(hits > existingArray[playerIndex].hits){
+          existingArray[playerIndex].hits = hits;
+          existingArray[playerIndex].misses = misses;
+        }
+      } else {
+        existingArray.push({username, hits, misses});
+      }
 
       return fetch(BIN_URL, {
         method: "PUT",
