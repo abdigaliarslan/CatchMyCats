@@ -1,4 +1,4 @@
-function endGame() {
+ function endGame() {
   clearInterval(gameTimer);  
 
   const popup = document.getElementById("gameOverPopup");
@@ -31,56 +31,64 @@ function goToMenu() {
 const BIN_URL = "https://api.jsonbin.io/v3/b/689b302443b1c97be91c6ed6";
 const MASTER_KEY = "$2a$10$IKI.MuTNot33ocK335Ynie2Rnj/x3BrG3RpcIdgGdq7dTDUCGWzai";
 
-function appendResult(username, hits, misses, level) {
+function appendResult(username, hits, misses){
+  const level = localStorage.getItem("level");  
+  if (!["easy","medium","hard"].includes(level)) {
+      console.error("Level not set properly!");
+      return; 
+  }
+
   fetch(BIN_URL, {
     headers: { "X-Master-Key": MASTER_KEY }
   })
-    .then(readRes => {
+  .then(readRes => {
       if (!readRes.ok) throw new Error(`Read error: ${readRes.status}`);
       return readRes.json();
-    })
-    .then(readData => {
+  })
+  .then(readData => {
       let existingArray = Array.isArray(readData.record) ? readData.record : [];
 
       const playerIndex = existingArray.findIndex(p => p.username === username);
 
       if (playerIndex !== -1) {
-         
-        if (!(`hits_${level}` in existingArray[playerIndex])) {
-          existingArray[playerIndex][`hits_${level}`] = 0;
-          existingArray[playerIndex][`misses_${level}`] = 0;
-        }
-
-         if (hits > existingArray[playerIndex][`hits_${level}`]) {
-          existingArray[playerIndex][`hits_${level}`] = hits;
-          existingArray[playerIndex][`misses_${level}`] = misses;
-        }
+          if (!(`hits_${level}` in existingArray[playerIndex])) {
+              existingArray[playerIndex][`hits_${level}`] = hits;
+              existingArray[playerIndex][`misses_${level}`] = misses;
+          } else {
+              if (hits > existingArray[playerIndex][`hits_${level}`]) {
+                  existingArray[playerIndex][`hits_${level}`] = hits;
+              }
+              existingArray[playerIndex][`misses_${level}`] = misses;
+          }
       } else {
-        existingArray.push({
-          username,
-          [`hits_${level}`]: hits,
-          [`misses_${level}`]: misses
-        });
+          let newPlayer = {
+              username,
+              hits_easy: 0, misses_easy: 0,
+              hits_medium: 0, misses_medium: 0,
+              hits_hard: 0, misses_hard: 0
+          };
+          newPlayer[`hits_${level}`] = hits;
+          newPlayer[`misses_${level}`] = misses;
+          existingArray.push(newPlayer);
       }
 
       return fetch(BIN_URL, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Master-Key": MASTER_KEY
-        },
-        body: JSON.stringify(existingArray)
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+              "X-Master-Key": MASTER_KEY
+          },
+          body: JSON.stringify(existingArray)
       });
-    })
-    .then(updateRes => {
+  })
+  .then(updateRes => {
       if (!updateRes.ok) throw new Error(`Update error: ${updateRes.status}`);
       return updateRes.json();
-    })
-    .then(updated => {
+  })
+  .then(updated => {
       console.log("Updated JSON:", updated);
-    })
-    .catch(err => {
+  })
+  .catch(err => {
       console.error("Error:", err.message);
-    });
+  });
 }
-

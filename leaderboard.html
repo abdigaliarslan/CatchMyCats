@@ -2,36 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="static/CSS/leaderboard.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
+    <link rel="stylesheet" href="CSS/LeaderboardStyle.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Leaderboard</h1>
-        
-        <div class="level-buttons">
-            <button onclick="changeLevel('easy')">Easy</button>
-            <button onclick="changeLevel('medium')">Medium</button>
-            <button onclick="changeLevel('hard')">Hard</button>
-        </div>
 
-        <table class="leaderboard">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Hits</th>
-                    <th>Misses</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboard-body"></tbody>
-        </table>
+<div class="container">
+    <h1>Leaderboard</h1>
 
-        <button class="back-btn" onclick="location.href='start.html'">Back</button>
+    <div class="level-buttons">
+        <button onclick="loadLeaderboard('easy')">Easy</button>
+        <button onclick="loadLeaderboard('medium')">Medium</button>
+        <button onclick="loadLeaderboard('hard')">Hard</button>
     </div>
-    <script src="static/JS/leaderboard.js"></script>
- </body>
+
+    <div id="loading">Loading...</div>
+
+    <table class="leaderboard">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Hits</th>
+                <th>Misses</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="4">Выберите уровень</td></tr>
+        </tbody>
+    </table>
+
+    <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="JS/Leaderboard.js"></script>
+</body>
 </html>

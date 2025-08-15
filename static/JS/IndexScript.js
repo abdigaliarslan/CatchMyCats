@@ -53,11 +53,11 @@ if (!maxSpeed) {
 let randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
 
 function handleClick(){
-            scoreVal++;
-            score.textContent = `Hits: ${scoreVal}`;
-            clearInterval(randomCatAppear);
-            randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
-            RandomCat();
+      scoreVal++;
+      score.textContent = `Hits: ${scoreVal}`;
+      clearInterval(randomCatAppear);
+      randomCatAppear = setInterval(RandomCat, 1000 * maxSpeed);
+      RandomCat();
 }
 
 function handleMiss(e) {
