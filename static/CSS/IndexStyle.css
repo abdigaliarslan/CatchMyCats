@@ -58,10 +58,10 @@ p {
 }
 
  button.leaderboard-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px; 
+  margin: 20px auto 0 auto;
+  padding: 13px 50px; 
   font-family: 'Press Start 2P', cursive;
+  width: fit-content;
   font-size: 19px;  
   color: #fff;
   background-color: #00ffff;
